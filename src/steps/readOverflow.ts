@@ -3,7 +3,7 @@ import { ExecutionResult, StepBody, StepExecutionContext } from "workflow-es";
 
 export class ReadOverflowRegister extends StepBody {
     public client: ModbusRTU = new ModbusRTU();
-    public overflowRegister: number = 8;
+    public overflowRegister: number = 40010;
     public overflowCount: number = 0;
 
     public async run(context: StepExecutionContext): Promise<ExecutionResult> {
