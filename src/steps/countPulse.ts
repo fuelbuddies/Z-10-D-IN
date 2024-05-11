@@ -3,7 +3,7 @@ import { ExecutionResult, StepBody, StepExecutionContext } from "workflow-es";
 
 export class ReadPulseCounter extends StepBody {
     public client: ModbusRTU = new ModbusRTU();
-    public pulseRegister: number = 40011;
+    public pulseRegister: number = 10;
     public pulseCount: number = 0;
     public previousPulseCount: number = 0;
 
