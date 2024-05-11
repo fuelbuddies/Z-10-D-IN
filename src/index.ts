@@ -3,6 +3,7 @@ import { Z10DIN_Workflow } from "./workflow";
 import { findDispenserPort } from "./utils/findDispenserPort";
 import { getConfigFromEnv } from "./utils/envParser";
 import { DispenserOptions } from "./utils/dispenserOptions";
+import { Seneca } from "./data";
 
 async function main(options: DispenserOptions) {
     const { hardwareId, attributeId, baudRate = 9600 } = options;
@@ -16,7 +17,11 @@ async function main(options: DispenserOptions) {
 
     host.registerWorkflow(Z10DIN_Workflow);
     await host.start();
-    let id = await host.startWorkflow("z10d1n-world", 1, { address: await findDispenserPort(hardwareId, attributeId), id: 1, timeout: 1000, baudRate});
+
+    const seneca = new Seneca(options);
+    seneca.address = await findDispenserPort(hardwareId, attributeId);
+    let id = await host.startWorkflow("z10d1n-world", 1, seneca);
+    
     console.log("Started workflow: " + id);
 }
 

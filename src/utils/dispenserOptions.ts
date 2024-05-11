@@ -3,8 +3,12 @@ export type DispenserOptions = {
     hardwareId: string;
     attributeId: string;
     baudRate?: number;
-    kFactor?: number
+    kFactor?: number;
+    timeout: number;
     printer?: PrinterOptions;
+    deviceId: number;
+    overflowRegister: number;
+    pulseRegister: number;
 };
 
 export type PrinterOptions = {
