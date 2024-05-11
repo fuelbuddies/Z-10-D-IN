@@ -17,7 +17,7 @@ export class Z10DIN_Workflow implements WorkflowBase<Seneca> {
         .startWith(HelloWorld)
         .saga((sequence) => sequence
         .startWith(InitializeSeleca)
-            .input((step, data) => step.id = data.id)
+            .input((step, data) => step.deviceId = data.deviceId)
             .input((step, data) => step.timeout = data.timeout)
             .input((step, data) => step.address = data.address)
             .input((step) => step.client = new ModbusRTU())
