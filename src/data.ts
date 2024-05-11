@@ -5,4 +5,8 @@ export class Seneca {
   public timeout: number = 1000;
   public address: string = "COM9";
   public id: number = 1;
+  public overflowCount: number = 0;
+  public overflowRegister: number = 0;
+  public pulseCount: number = 0;
+  public previousPulseCount: number = 0;
 }

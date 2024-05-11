@@ -9,10 +9,10 @@ export class InitializeSeleca extends StepBody {
     public client: ModbusRTU = new ModbusRTU();
 
     public async run(context: StepExecutionContext): Promise<ExecutionResult> {
+        console.log("Connecting to Seneca");
         this.client.setID(this.id);
         this.client.setTimeout(this.timeout);
         await this.client.connectRTUBuffered(this.address, { baudRate: this.baudRate });
-        
         console.log("Connected to Seneca");
         return ExecutionResult.next();
     }
