@@ -1,0 +1,20 @@
+{
+  "name": "z-10-d-in",
+  "version": "1.0.0",
+  "description": "Modbus polling workflow with WorkflowJS",
+  "main": "src/index.ts",
+  "scripts": {
+    "start": "env-cmd -f .env.gatex ts-node src/index.ts",
+    "test": "jest"
+  },
+  "dependencies": {
+    "modbus-serial": "^8.0.16",
+    "typescript": "^5.4.5",
+    "workflow-es": "^2.3.5"
+  },
+  "devDependencies": {
+    "@types/node": "^20.12.11",
+    "env-cmd": "^10.1.0",
+    "ts-node": "^10.9.2"
+  }
+}
