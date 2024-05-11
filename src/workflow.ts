@@ -37,7 +37,7 @@ export class Z10DIN_Workflow implements WorkflowBase<Seneca> {
                 .input((step, data) => step.client = data.client)
                 .input((step, data) => step.overflowRegister = data.overflowRegister)
                 .output((step, data) => data.overflowCount = step.overflowCount))
-        .onError(WorkflowErrorHandling.Retry, 500)
+        .onError(WorkflowErrorHandling.Retry, 1000)
         .then(GoodbyeWorld);
     }
 }
