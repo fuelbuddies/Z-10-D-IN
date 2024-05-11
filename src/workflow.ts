@@ -22,6 +22,7 @@ export class Z10DIN_Workflow implements WorkflowBase<Seneca> {
             .input((step, data) => step.address = data.address)
             .input((step) => step.client = new ModbusRTU())
             .output((step, data) => data.client = step.client)
+        .delay(data => 1000)
         .then(ReadOverflowRegister)
             .input((step, data) => step.client = data.client)
             .input((step, data) => step.overflowRegister = data.overflowRegister)
